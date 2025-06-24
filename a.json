@@ -39,6 +39,24 @@
           "steps": ["Send GET request to /users", "Verify status 200"]
         }
       ]
+    },
+    {
+      "category": "nanna ertyu Tests",
+      "testCases": [
+        {
+          "name": "Check GET /users returns 200",
+          "steps": ["Send GET request to /users", "Verify status 200"]
+        }
+      ]
+    },
+    {
+      "category": "nanna pppp Tests",
+      "testCases": [
+        {
+          "name": "Check GET /users returns 200",
+          "steps": ["Send GET request to /users", "Verify status 200"]
+        }
+      ]
     }
   ]
 }
