@@ -1,0 +1,18 @@
+{
+    "Authentication": [
+        {
+            "name": "Thick clinet Validation",
+            "steps": "Verify token structure; Check expiration time; Validate token signature"
+        },
+        {
+            "name": "Replay Attack",
+            "steps": "Send same request multiple times; Observe server behavior"
+        }
+    ],
+    "Authorization": [
+        {
+            "name": "IDOR in API",
+            "steps": "Manipulate IDs; Attempt unauthorized resource access"
+        }
+    ]
+}
