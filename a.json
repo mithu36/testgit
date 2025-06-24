@@ -1,7 +1,7 @@
 {
   "categories": [
     {
-      "category": "Authentication Tests",
+      "category": "Authentication Tests1",
       "testCases": [
         {
           "name": "Test Login with Valid Credentials",
