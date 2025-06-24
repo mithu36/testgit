@@ -57,6 +57,15 @@
           "steps": ["Send GET request to /users", "Verify status 200"]
         }
       ]
+    },
+    {
+      "category": "Test update",
+      "testCases": [
+        {
+          "name": "Check GET /users returns 200",
+          "steps": ["Send GET request to /users", "Verify status 200"]
+        }
+      ]
     }
   ]
 }
