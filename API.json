@@ -1,14 +1,11 @@
 {
   "categories": [
     {
-      "category": "Authentication Tests",
+      "category": "APITests1",
       "testCases": [
         {
           "name": "Test Login with Valid Credentials",
           "steps": ["Open Login Page", "Enter Username and Password", "Click Login", "Verify Success"]
-          "steps": ["pppppe", "Enter Username and Password", "Click Login", "Verify Success"]
-          "steps": ["zxcvb", "Enter Username and Password", "Click Login", "Verify Success"]
-          
         },
         {
           "name": "Test Login with Invalid Credentials",
@@ -18,6 +15,51 @@
     },
     {
       "category": "API Endpoint Tests",
+      "testCases": [
+        {
+          "name": "Check GET /users returns 200",
+          "steps": ["Send GET request to /users", "Verify status 200"]
+        }
+      ]
+    },
+    {
+      "category": "API APIEndpoint Tests",
+      "testCases": [
+        {
+          "name": "Check GET /users returns 200",
+          "steps": ["Send GET request to /users", "Verify status 200"]
+        }
+      ]
+    },
+    {
+      "category": "nanna Endpoint Tests",
+      "testCases": [
+        {
+          "name": "Check GET /users returns 200",
+          "steps": ["Send GET request to /users", "Verify status 200"]
+        }
+      ]
+    },
+    {
+      "category": "nanna ertyu Tests",
+      "testCases": [
+        {
+          "name": "Check GET /users returns 200",
+          "steps": ["Send GET request to /users", "Verify status 200"]
+        }
+      ]
+    },
+    {
+      "category": "nanna pppp Tests",
+      "testCases": [
+        {
+          "name": "Check GET /users returns 200",
+          "steps": ["Send GET request to /users", "Verify status 200"]
+        }
+      ]
+    },
+    {
+      "category": "Test update",
       "testCases": [
         {
           "name": "Check GET /users returns 200",
