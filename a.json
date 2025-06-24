@@ -1,9 +1,26 @@
 {
-    "Category1": [
-        {"name": "TestCase1", "steps": ["Step1", "Step2"]},
-        {"name": "TestCase2", "steps": ["Step3", "Step4"]}
-    ],
-    "Category2": [
-        {"name": "TestCase3", "steps": ["Step5", "Step6"]}
-    ]
+  "categories": [
+    {
+      "category": "Authentication Tests",
+      "testCases": [
+        {
+          "name": "Test Login with Valid Credentials",
+          "steps": ["Open Login Page", "Enter Username and Password", "Click Login", "Verify Success"]
+        },
+        {
+          "name": "Test Login with Invalid Credentials",
+          "steps": ["Open Login Page", "Enter Wrong Username", "Click Login", "Verify Error"]
+        }
+      ]
+    },
+    {
+      "category": "API Endpoint Tests",
+      "testCases": [
+        {
+          "name": "Check GET /users returns 200",
+          "steps": ["Send GET request to /users", "Verify status 200"]
+        }
+      ]
+    }
+  ]
 }
