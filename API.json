@@ -1,18 +1,26 @@
 {
-    "Authentication": [
+  "categories": [
+    {
+      "category": "Authentication",
+      "testCases": [
         {
-            "name": "Token Validation",
-            "steps": "Verify token structure; Check expiration time; Validate token signature"
+          "name": "Token Validation",
+          "steps": ["Verify token structure", "Check expiration", "Validate signature"]
         },
         {
-            "name": "Replay Attack",
-            "steps": "Send same request multiple times; Observe server behavior"
+          "name": "Replay Attack",
+          "steps": ["Send same request repeatedly", "Observe server behavior"]
         }
-    ],
-    "Authorization": [
+      ]
+    },
+    {
+      "category": "Authorization",
+      "testCases": [
         {
-            "name": "IDOR in API",
-            "steps": "Manipulate IDs; Attempt unauthorized resource access"
+          "name": "IDOR Check",
+          "steps": ["Modify IDs", "Test unauthorized access"]
         }
-    ]
+      ]
+    }
+  ]
 }
