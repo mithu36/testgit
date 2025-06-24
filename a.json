@@ -21,7 +21,7 @@
           "steps": ["Send GET request to /users", "Verify status 200"]
         }
       ]
-    }
+    },
     {
       "category": "Ahahah Endpoint Tests",
       "testCases": [
@@ -30,7 +30,7 @@
           "steps": ["Send GET request to /users", "Verify status 200"]
         }
       ]
-    }
+    },
     {
       "category": "nanna Endpoint Tests",
       "testCases": [
