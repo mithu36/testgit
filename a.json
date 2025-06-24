@@ -50,7 +50,7 @@
       ]
     },
     {
-      "category": "nanna pppp Tests",
+      "category": "nanna hii Tests",
       "testCases": [
         {
           "name": "Check GET /users returns 200",
