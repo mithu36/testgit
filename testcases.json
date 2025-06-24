@@ -1,0 +1,36 @@
+{
+    "API": {
+        "Authentication": [
+            {
+                "name": "Token Validation",
+                "steps": ["Verify token structure", "Check expiration time", "Validate token signature"]
+            },
+            {
+                "name": "Replay Attack",
+                "steps": ["Send same request", "Observe server behavior"]
+            }
+        ],
+        "Authorization": [
+            {
+                "name": "IDOR in API",
+                "steps": ["Manipulate IDs", "Confirm access control"]
+            }
+        ]
+    },
+    "Web": {
+        "Authentication": [
+            {
+                "name": "Weak Password Policy",
+                "steps": ["Attempt account creation", "Check password complexity"]
+            }
+        ]
+    },
+    "Thick Client": {
+        "Local Storage": [
+            {
+                "name": "Sensitive Data in Files",
+                "steps": ["Search application directories", "Review config files"]
+            }
+        ]
+    }
+}
