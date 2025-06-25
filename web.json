@@ -1,0 +1,135 @@
+{
+  "categories": [
+    {
+      "category": "Authentication & Session Management",
+      "testCases": [
+        {
+          "name": "Test Weak Password Policy",
+          "steps": ["Navigate to registration page", "Attempt to set weak password (e.g., '123456')", "Check if accepted"]
+        },
+        {
+          "name": "Test Session Fixation",
+          "steps": ["Establish session before login", "Attempt to reuse same session after login", "Check for session invalidation"]
+        },
+        {
+          "name": "Test Logout Functionality",
+          "steps": ["Log in to application", "Click logout", "Attempt to access authenticated pages", "Verify access denied"]
+        }
+      ]
+    },
+    {
+      "category": "Cross-Site Scripting (XSS)",
+      "testCases": [
+        {
+          "name": "Test Stored XSS on Comment Field",
+          "steps": ["Enter <script>alert('XSS')</script> in comment", "Reload page", "Check if script executes"]
+        },
+        {
+          "name": "Test Reflected XSS on Search",
+          "steps": ["Inject <img src=x onerror=alert('XSS')> in search bar", "Check response for script execution"]
+        }
+      ]
+    },
+    {
+      "category": "Cross-Site Request Forgery (CSRF)",
+      "testCases": [
+        {
+          "name": "Test CSRF Protection on Profile Update",
+          "steps": ["Craft malicious request to update profile", "Send without CSRF token", "Check if update is allowed"]
+        }
+      ]
+    },
+    {
+      "category": "Insecure Direct Object References (IDOR)",
+      "testCases": [
+        {
+          "name": "Test Accessing Another User's Profile",
+          "steps": ["Capture profile request with user ID", "Modify ID to another user", "Verify if access is granted"]
+        }
+      ]
+    },
+    {
+      "category": "Input Validation & Injection",
+      "testCases": [
+        {
+          "name": "Test SQL Injection on Login",
+          "steps": ["Inject ' OR '1'='1 in username field", "Submit form", "Check if login is bypassed"]
+        },
+        {
+          "name": "Test Command Injection via File Upload",
+          "steps": ["Upload filename with `ls` command injection", "Check if command executes"]
+        }
+      ]
+    },
+    {
+      "category": "File Upload Vulnerabilities",
+      "testCases": [
+        {
+          "name": "Test Upload of Executable Files",
+          "steps": ["Attempt to upload .php or .exe file", "Verify if upload is rejected or sanitized"]
+        },
+        {
+          "name": "Test Bypass of File Extension Restrictions",
+          "steps": ["Upload file with double extensions (e.g., image.jpg.php)", "Check if file executes"]
+        }
+      ]
+    },
+    {
+      "category": "Security Misconfigurations",
+      "testCases": [
+        {
+          "name": "Test Access to Debug Pages",
+          "steps": ["Try accessing /debug, /phpinfo, or similar endpoints", "Check if pages are exposed"]
+        },
+        {
+          "name": "Test Missing Security Headers",
+          "steps": ["Inspect HTTP response", "Check for missing headers like Content-Security-Policy, X-Content-Type-Options"]
+        }
+      ]
+    },
+    {
+      "category": "Sensitive Data Exposure",
+      "testCases": [
+        {
+          "name": "Test Transmission of Credentials Over HTTP",
+          "steps": ["Intercept login request", "Check if credentials are sent over unencrypted HTTP"]
+        },
+        {
+          "name": "Test Error Messages for Sensitive Data",
+          "steps": ["Trigger application errors", "Inspect messages for stack traces or internal details"]
+        }
+      ]
+    },
+    {
+      "category": "Business Logic Vulnerabilities",
+      "testCases": [
+        {
+          "name": "Test Price Manipulation in Shopping Cart",
+          "steps": ["Modify price parameter in browser DevTools", "Proceed to checkout", "Verify if altered price applies"]
+        },
+        {
+          "name": "Test Bypass of Purchase Limits",
+          "steps": ["Attempt to exceed allowed quantity limit for products", "Check system enforcement"]
+        }
+      ]
+    },
+    {
+      "category": "Clickjacking",
+      "testCases": [
+        {
+          "name": "Test Clickjacking via iFrame",
+          "steps": ["Create page with hidden iFrame of target site", "Overlay buttons", "Check if user clicks unintended actions"]
+        }
+      ]
+    },
+    {
+      "category": "Broken Access Control",
+      "testCases": [
+        {
+          "name": "Test Access to Admin Features as Regular User",
+          "steps": ["Login as regular user", "Manually access /admin URLs", "Verify if blocked"]
+        }
+      ]
+    }
+  ]
+}
