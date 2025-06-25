@@ -1,69 +1,105 @@
 {
   "categories": [
     {
-      "category": "APITests1",
+      "category": "Authentication & Authorization",
       "testCases": [
         {
-          "name": "Test Login with Valid Credentials",
-          "steps": ["Open Login Page", "Enter Username and Password", "Click Login", "Verify Success"]
+          "name": "Test Bypass Authentication with Missing Token",
+          "steps": [
+            "Send request to protected endpoint without token",
+            "Verify that the response is 401 Unauthorized"
+          ]
         },
         {
-          "name": "Test Login with Invalid Credentials",
-          "steps": ["Open Login Page", "Enter Wrong Username", "Click Login", "Verify Error"]
+          "name": "Test Bypass Authentication with Invalid Token",
+          "steps": [
+            "Send request with malformed or expired token",
+            "Check if API still allows access"
+          ]
+        },
+        {
+          "name": "Test IDOR (Insecure Direct Object Reference)",
+          "steps": [
+            "Login as user A",
+            "Try accessing user B's resource via /api/users/{id}",
+            "Check if access is permitted"
+          ]
         }
       ]
     },
     {
-      "category": "API Endpoint Tests",
+      "category": "Input Validation & Injection",
       "testCases": [
         {
-          "name": "Check GET /users returns 200",
-          "steps": ["Send GET request to /users", "Verify status 200"]
+          "name": "Test SQL Injection on Login Endpoint",
+          "steps": [
+            "Send POST to /login with payload ' OR 1=1 --",
+            "Observe if authentication bypasses"
+          ]
+        },
+        {
+          "name": "Test Command Injection via API Input",
+          "steps": [
+            "Send malicious payload to vulnerable parameter (e.g., ; ls -la)",
+            "Check if command is executed on the server"
+          ]
         }
       ]
     },
     {
-      "category": "API APIEndpoint Tests",
+      "category": "Rate Limiting & Brute Force",
       "testCases": [
         {
-          "name": "Check GET /users returns 200",
-          "steps": ["Send GET request to /users", "Verify status 200"]
+          "name": "Test Login Brute Force Protection",
+          "steps": [
+            "Send multiple failed login attempts with different passwords",
+            "Check for rate limiting or CAPTCHA enforcement"
+          ]
+        },
+        {
+          "name": "Test Rate Limit on Sensitive Endpoints",
+          "steps": [
+            "Send multiple requests to /reset-password endpoint",
+            "Check if rate limits are enforced (429 or blocking)"
+          ]
         }
       ]
     },
     {
-      "category": "nanna Endpoint Tests",
+      "category": "Information Disclosure",
       "testCases": [
         {
-          "name": "Check GET /users returns 200",
-          "steps": ["Send GET request to /users", "Verify status 200"]
+          "name": "Check for Stack Trace in Error Messages",
+          "steps": [
+            "Send malformed request to API",
+            "Verify response does not include stack trace or internal details"
+          ]
+        },
+        {
+          "name": "Check for Sensitive Data in Response",
+          "steps": [
+            "Access user object",
+            "Ensure password hashes, tokens, or PII are not returned"
+          ]
         }
       ]
     },
     {
-      "category": "nanna ertyu Tests",
+      "category": "HTTPS & Security Headers",
       "testCases": [
         {
-          "name": "Check GET /users returns 200",
-          "steps": ["Send GET request to /users", "Verify status 200"]
-        }
-      ]
-    },
-    {
-      "category": "nanna pppp Tests",
-      "testCases": [
+          "name": "Test API Availability over HTTP",
+          "steps": [
+            "Try accessing API using http:// instead of https://",
+            "Verify redirection or blocking"
+          ]
+        },
         {
-          "name": "Check GET /users returns 200",
-          "steps": ["Send GET request to /users", "Verify status 200"]
-        }
-      ]
-    },
-    {
-      "category": "Test update",
-      "testCases": [
-        {
-          "name": "Check GET /users returns 200",
-          "steps": ["Send GET request to /users", "Verify status 200"]
+          "name": "Check Security Headers in Response",
+          "steps": [
+            "Send request to any endpoint",
+            "Check headers: Content-Security-Policy, X-Frame-Options, etc."
+          ]
         }
       ]
     }
