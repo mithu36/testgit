@@ -108,6 +108,22 @@
         {
           "name": "Test Login with Invalid Credentials",
           "steps": ["Open Login Page", "Enter Wrong Username", "Click Login", "Verify Error"]
+        },
+        {
+          "name": "Test Login with Valid Credentials",
+          "steps": ["Open Login Page", "Enter Username and Password", "Click Login", "Verify Success"]
+        },
+        {
+          "name": "Test Login with Invalid Credentials",
+          "steps": ["Open Login Page", "Enter Wrong Username", "Click Login", "Verify Error"]
+        },
+        {
+          "name": "Test Login with Valid Credentials",
+          "steps": ["Open Login Page", "Enter Username and Password", "Click Login", "Verify Success"]
+        },
+        {
+          "name": "Test Login with Invalid Credentials",
+          "steps": ["Open Login Page", "Enter Wrong Username", "Click Login", "Verify Error"]
         }
       ]
     }
