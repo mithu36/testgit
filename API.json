@@ -1,0 +1,177 @@
+{
+  "categories": [
+    {
+      "category": "Authentication & Authorizationm",
+      "testCases": [
+        {
+          "name": "Test Missing Token",
+          "steps": ["Send request without token", "Verify response is 401 Unauthorized"]
+        },
+        {
+          "name": "Test Expired Token Usage",
+          "steps": ["Use expired token on protected endpoint", "Verify rejection of request"]
+        },
+        {
+          "name": "Test Privilege Escalation via JWT Manipulation",
+          "steps": ["Decode JWT, change role to admin", "Re-encode and resend token", "Verify unauthorized privilege escalation"]
+        }
+      ]
+    },
+    {
+      "category": "Injection Attacks",
+      "testCases": [
+        {
+          "name": "Test SQL Injection on Search",
+          "steps": ["Send search query with ' OR '1'='1", "Check for unauthorized data exposure"]
+        },
+        {
+          "name": "Test NoSQL Injection",
+          "steps": ["Send JSON with { \"username\": { \"$gt\": \"\" } }", "Verify system behavior"]
+        },
+        {
+          "name": "Test Header Injection",
+          "steps": ["Inject CRLF characters into headers", "Check for HTTP response splitting"]
+        }
+      ]
+    },
+    {
+      "category": "Rate Limiting & Brute Force",
+      "testCases": [
+        {
+          "name": "Test Login Brute Force",
+          "steps": ["Send repeated invalid login attempts", "Verify if rate limiting or account lockout occurs"]
+        },
+        {
+          "name": "Test OTP Guessing",
+          "steps": ["Send rapid OTP attempts", "Check for OTP lockout or throttling"]
+        }
+      ]
+    },
+    {
+      "category": "Information Disclosure",
+      "testCases": [
+        {
+          "name": "Check Verbose Error Messages",
+          "steps": ["Trigger intentional error", "Inspect response for sensitive details like stack traces or internal paths"]
+        },
+        {
+          "name": "Test for Directory Listing",
+          "steps": ["Access API base URL with incorrect path", "Check for directory contents exposure"]
+        }
+      ]
+    },
+    {
+      "category": "Security Misconfigurations",
+      "testCases": [
+        {
+          "name": "Test Insecure HTTP Access",
+          "steps": ["Access API over HTTP", "Verify redirection to HTTPS or request blocking"]
+        },
+        {
+          "name": "Test Missing Security Headers",
+          "steps": ["Inspect API response headers", "Check for missing X-Frame-Options, CSP, or HSTS"]
+        }
+      ]
+    },
+    {
+      "category": "Mass Assignment",
+      "testCases": [
+        {
+          "name": "Test Unauthorized Attribute Injection",
+          "steps": ["Send unexpected parameters (e.g., admin=true) in request body", "Verify server ignores unauthorized fields"]
+        }
+      ]
+    },
+    {
+      "category": "Business Logic Abuse",
+      "testCases": [
+        {
+          "name": "Test Order Total Manipulation",
+          "steps": ["Modify price field in order payload", "Check if system accepts tampered price"]
+        },
+        {
+          "name": "Test Reuse of Discount Codes",
+          "steps": ["Apply single-use promo code multiple times", "Check for improper reuse"]
+        }
+      ]
+    },
+    {
+      "category": "Improper Asset Management",
+      "testCases": [
+        {
+          "name": "Test Deprecated Endpoints Accessibility",
+          "steps": ["Scan for known old endpoints like /v1/api", "Verify they are disabled"]
+        },
+        {
+          "name": "Test Access to Staging or Dev APIs",
+          "steps": ["Attempt to access /dev or /staging endpoints", "Ensure they are restricted"]
+        }
+      ]
+    },
+    {
+      "category": "File Upload Vulnerabilities",
+      "testCases": [
+        {
+          "name": "Test Upload of Malicious Executables",
+          "steps": ["Attempt to upload .exe, .php, or other dangerous files", "Verify server rejects file or sanitizes it"]
+        },
+        {
+          "name": "Test File Size Limit Bypass",
+          "steps": ["Send oversized file exceeding documented limit", "Check for proper enforcement"]
+        }
+      ]
+    },
+    {
+      "category": "API Rate Limiting & DoS",
+      "testCases": [
+        {
+          "name": "Test High Volume GET Requests",
+          "steps": ["Flood API with GET requests", "Verify system throttling or rate limiting"]
+        },
+        {
+          "name": "Test Resource-Intensive POST Flood",
+          "steps": ["Send continuous large POST requests", "Check if API remains stable and responsive"]
+        }
+      ]
+    },
+    {
+      "category": "GraphQL-Specific Tests",
+      "testCases": [
+        {
+          "name": "Test GraphQL Introspection Exposure",
+          "steps": ["Send introspection query", "Verify schema information is appropriately restricted"]
+        },
+        {
+          "name": "Test GraphQL Injection",
+          "steps": ["Send malicious GraphQL query with injection payload", "Check for unexpected system behavior"]
+        }
+      ]
+    },
+    {
+      "category": "JWT & Token Handling",
+      "testCases": [
+        {
+          "name": "Test Missing Token Validation",
+          "steps": ["Send request with no token", "Verify rejection"]
+        },
+        {
+          "name": "Test Weak JWT Signing Key",
+          "steps": ["Analyze JWT signature", "Check if weak or default keys are used"]
+        }
+      ]
+    },
+    {
+      "category": "Excessive Data Exposure",
+      "testCases": [
+        {
+          "name": "Test Sensitive Fields in API Response",
+          "steps": ["Request user details", "Check if passwords, tokens, or internal IDs are exposed"]
+        },
+        {
+          "name": "Test Data Over-Fetching",
+          "steps": ["Request with broad filter or wildcard parameters", "Check for unintended bulk data exposure"]
+        }
+      ]
+    }
+  ]
+}
