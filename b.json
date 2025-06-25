@@ -4,7 +4,7 @@
       "category": "santosh",
       "testCases": [
         {
-          "name": "Test Login with Valid Credentials",
+          "name": "Test L ogin with Valid Credentials",
           "steps": ["Open Login Page", "Enter Username and Password", "Click Login", "Verify Success"]
         },
         {
